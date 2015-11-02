@@ -1,4 +1,4 @@
-<?php include 'header.php';?>
+<?php get_header(); ?>
 
 
 
@@ -45,8 +45,8 @@
 <section class="bg_white">
 	<div class="quote">
 		<div class="half">
-			<p class="futura_med">La casa se diseñó con un estudio del espacio y del usuario, 
-				se llegó a concluir tcomo objetivo principal, la accesibilidad de entradas 
+			<p class="futura_med">La casa se diseñó con un estudio del espacio y del usuario,
+				se llegó a concluir tcomo objetivo principal, la accesibilidad de entradas
 				desde distintos puntos a todas las áreas comunes.</p>
 		</div>
 	</div>
@@ -70,12 +70,12 @@
 				<div class="entire_img">
 					<img src="img/2s.jpg">
 				</div>
-			</li> 
+			</li>
 
 			<li class="txt_img">
 				<div class="txt">
-					<p class="futura_med">La casa se diseñó con un estudio del espacio y del usuario, 
-				se llegó a concluir tcomo objetivo principal, la accesibilidad de entradas 
+					<p class="futura_med">La casa se diseñó con un estudio del espacio y del usuario,
+				se llegó a concluir tcomo objetivo principal, la accesibilidad de entradas
 				desde distintos puntos a todas las áreas comunes.</p>
 				</div>
 				<div class="half_img">
@@ -88,12 +88,12 @@
 					<img src="img/3s.jpg">
 				</div>
 				<div class="txt">
-					<p class="futura_med">La casa se diseñó con un estudio del espacio y del usuario, 
-				se llegó a concluir tcomo objetivo principal, la accesibilidad de entradas 
+					<p class="futura_med">La casa se diseñó con un estudio del espacio y del usuario,
+				se llegó a concluir tcomo objetivo principal, la accesibilidad de entradas
 				desde distintos puntos a todas las áreas comunes.</p>
 				</div>
 			</li>
-			
+
 			<li>
 				<div class="entire_img">
 					<img src="img/2s.jpg">
@@ -115,7 +115,7 @@
 			</ul>
 			<ul>
 				<li><h2>FOTOGRAFÍA:</h2></li>
-				<li><a href="#">Idea Cúbica</a></li>	
+				<li><a href="#">Idea Cúbica</a></li>
 			</ul>
 		</div>
 	</div>
@@ -140,5 +140,4 @@
 	</div>
 </section>
 
-
-<?php include 'footer.php';?>
+<?php get_footer(); ?>

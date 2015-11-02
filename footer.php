@@ -34,7 +34,7 @@
 		<div class="txt">
 			<div>
 				<p>Independencia 208 Pte. San Pedro <br>
-				G.G., N.L. CP. 66230 <br><br>	
+				G.G., N.L. CP. 66230 <br><br>
 				<b>t:</b> (81) 8338 1020<br>
 				<b>e.</b> info@nuno.com.mx</p>
 			</div>
@@ -57,7 +57,11 @@
 		});
 
 		$( "a.burger" ).click(function() {
-			$( "header" ).toggleClass( "show" );          
+			$( "header" ).toggleClass( "show" );
 		});
 	</script>
+
+	<?php wp_footer(); ?>
+
 </body>
+</html>
