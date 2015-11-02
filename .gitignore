@@ -1,0 +1,6 @@
+$ cat .gitignore
+# exclude everything except directory foo/bar
+contacto.php
+nosotros.php
+proyectos.php
+servicios.php

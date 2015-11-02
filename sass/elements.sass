@@ -1,0 +1,616 @@
+/* Slider Pager */
+#huge_slide
+	position: relative
+	height: 40em
+	z-index: 0
+	.slide
+		overflow: hidden
+		height: 100%
+		li	
+			font-size: 0
+			width: 100%
+			height: 40em
+			display: table
+			.img
+				background-position: 50% 0
+				background-repeat: repeat 
+				background-attachment: fixed
+				margin: 0 auto 
+				height: 720px
+				background-size: cover
+				width: 100%
+				> div:nth-child(1)
+					position: relative	
+					display: table
+					height: 100%
+					width: 100%
+					.mask
+						@extend .mask
+						@extend .bg_gradient
+						z-index: 1
+					.titulo
+						@extend .table_cell
+						font-size: 18px
+						position: relative
+						z-index: 2
+						text-align: center
+						a
+							color: $c_white
+						p
+							@extend .futuraB_huge
+							text-decoration: underline
+							margin-bottom: 0.5em
+						span
+							@extend .futura_reg
+						.imagen
+							max-width: 20em
+							margin: 0 auto
+	@media (max-width: $med_b)
+		height: 30em
+		.slide
+			li
+				height: 30em
+				.img
+					background-position: center!important
+					background-attachment: inherit
+					height: 420px
+	@media (max-width: $tablet_b)
+		height: 20em
+		.slide
+			li
+				height: 20em
+				.img
+					height: 280px
+					> div:nth-child(1)
+						.titulo
+							padding: 0 10%
+							.imagen
+								max-width: 17em
+							p
+								font-size: 1.5em
+
+
+
+
+
+
+
+/* Pager */
+.slide-pager
+	@extend .center
+	z-index: 2
+	font-size: 18px
+	text-align: center
+	bottom: 6em
+	li
+		@extend .futuraB_small
+		display: inline
+		margin-right: 1em
+		a
+			padding: 0.2em 0.5em
+			background-color: $c_white
+			color: $c_black
+	li:hover, .rslides_here
+		a
+			background-color: $c_rosa
+			color: $c_white
+	@media (max-width: $med_b)
+		bottom: 2em
+
+
+
+
+
+
+/* Halfs */
+.halfs
+	@extend .x_pad
+	background-color: $c_white
+	overflow: hidden
+	> ul
+		> li
+			@extend .two_col_alt
+			@extend .table
+			overflow: hidden
+			> div
+				@extend .bg_img
+			.titulo
+				@extend .table_cell
+				+transition(all ease 0.3s)
+				background-size: 100%
+				position: relative
+				height: 100%
+				overflow: auto
+				a
+					+transition(all ease 0.3s)
+					@extend .gray_mask
+					display: table
+					color: $c_black
+					text-align: center
+					width: 100%
+					height: 100%
+					.txt
+						@extend .table_cell
+						p
+							@extend .century_med
+							line-height: 1.5em
+						b, h2
+							@extend .futuraB
+						h2
+							font-size: 16px
+							margin-top: 0.75em
+			.titulo:hover
+				background-size: 110%
+				+transition(all ease 0.3s)
+				a
+					+transition(all ease 0.3s)
+					@extend .coal_mask
+					color: $c_white
+					.txt
+						h2
+							text-decoration: underline
+			.imagen
+				font-size: 0
+				position: relative
+				.slide
+					li
+						width: 100%
+				.slide-pager
+					width: auto
+					bottom: 2em
+					li
+						float: inherit
+	@media (max-width: $tablet_b)
+		> ul
+			> li
+				display: inline-block
+				.titulo
+					a
+						min-height: 20em
+.hide_half	
+	opacity: 0
+
+
+
+
+
+
+/* Quote */
+.quote
+	@extend .y_box_pad
+	@extend .x_pad
+	width: 100%
+	position: relative
+	overflow: hidden
+	.black_quote
+		a
+			color: $c_white
+		a:hover
+			color: $c_white
+			text-decoration: underline
+	.full
+		@extend .mleft
+		max-width: 56em
+	.half
+		@extend .mleft
+		max-width: 35em
+		line-height: 2em
+	a:hover
+		text-decoration: underline
+		color: $c_grape
+	@media (max-width: $tablet_b)
+		.full, .half
+			width: 100%
+
+
+
+
+
+
+
+/* Creditos */
+.credits
+	@extend .y_box_pad
+	@extend .x_pad
+	width: 100%
+	padding-bottom: 0
+	position: relative
+	overflow: hidden
+	> div
+		@include span(80% no-gutters)
+		@extend .mleft
+		> ul
+			@include span (3 no-gutters)
+			h2
+				@extend .futuraB_small
+				text-transform: uppercase
+				margin-bottom: 0.5em
+			a
+				line-height: 1.5em
+			a:hover
+				text-decoration: underline
+				color: $c_grape
+	@media (max-width: $tablet_b)
+		> div
+			> ul
+				@include span (12 no-gutters)
+				margin-bottom: 1em
+
+
+
+
+
+
+
+/* Halfs & Fourths Gallery*/
+.half_fourth
+	@extend .y_pad_top
+	@extend .x_pad
+	width: 102%
+	padding-top: 4em
+	position: relative
+	overflow: hidden
+	.masonry
+		li
+			> div
+				font-size: 18px
+				position: relative
+			.img
+				font-size: 0
+				position: relative
+			a
+				@extend .mask
+				+transition(all ease 0.3s)
+				opacity: 0
+				.txt
+					@extend .table
+					opacity: 0
+					> div
+						@extend .table_cell
+					h1
+						@extend .futuraB_med
+						text-align: center
+						color: $c_white
+						span
+							margin-top: 1.3em
+							display: block
+							font-size: 14px
+			a:hover
+				@extend .coal_mask
+				+transition(all ease 0.3s)
+				opacity: 1
+				.txt
+					+transition(all ease 0.3s 0.2s)
+					opacity: 1
+
+
+
+
+
+
+
+/* Contact Block*/
+.contact
+	@extend .x_pad
+	display: table
+	width: 100%
+	.img
+		@extend .bg_img
+		@extend .y_pad
+		@extend .table_cell
+		height: 100%
+		width: 50%
+		float: none
+	.form
+		@extend .x_box_pad
+		@extend .y_pad
+		width: 100%
+	form
+		margin-top: 2.2em
+	h2
+		@extend .futuraB_med
+		line-height: 2em
+	@media (min-width: $tablet_b)
+		.form
+			padding-right: 0
+	@media (max-width: $tablet_b)
+		padding-left: 0
+		padding-right: 0
+		.img
+			height: 20em
+		.img, .form
+			width: 100%
+			float: left
+		h2
+			line-height: 1.5em
+			margin-bottom: 1em
+
+
+
+
+
+
+
+/* Filter menu */
+.filtro
+	@extend .x_pad
+	@extend .y_mtop
+	width: 100%
+	.titulo
+		text-align: center
+		li
+			display: inline-block
+			a
+				@extend .century_med
+			a:hover, .active
+				color: $c_grape
+				text-decoration: underline
+		h1
+			@extend .futuraB_huge
+	.categoria
+		margin-top: 3.6em
+		text-align: center
+		li
+			display: inline-block
+			a
+				@extend .futuraB_small
+			a:hover, .active
+				@extend .futuraB
+				color: $c_grape
+				text-decoration: underline
+		li:after
+			content: '—'
+		li:nth-last-child(1):after
+			content: ''
+	@media (max-width: $tablet_b)
+		.categoria
+			margin-top: 1em
+
+
+
+
+
+
+/* Galería */
+.gallery
+	@extend .x_pad
+	li
+		width: 100%
+		display: table
+		> div
+			padding: 10px
+		.entire_img
+			@include span(12 no-gutters)
+			text-align: center
+			h2
+				@extend .futuraB
+				text-transform: uppercase
+			span
+				@extend .futura_small
+				text-transform: lowercase
+				display: block
+		> .half_img
+			@include span(6 no-gutters)
+			float: left
+	li.txt_img
+		.txt
+			@include span(6 no-gutters)
+			@extend .table_cell
+			@extend .x_box_pad
+			@extend .y_box_pad
+			float: inherit
+		.half_img
+			@include span(12 no-gutters)
+			float: inherit
+			text-align: center
+	@media (max-width: $med_b)
+		li.txt_img
+			.txt
+				padding-left: 2em
+				padding-right: 2em	
+	@media (max-width: $tablet_b)		
+		li.txt_img
+			.txt
+				padding-left: 1em
+				padding-right: 1em
+	@media (max-width: $small_b)
+		li
+			> div
+				padding: 1em 0
+			.half_img
+				@include span(12 no-gutters)
+		li.txt_img
+			.txt, .half_img
+				padding: 1em 0
+				@include span(12 no-gutters)
+
+
+
+
+
+
+
+/* Galería Team*/
+.team
+	@extend .x_pad
+	@extend .y_mtop
+	@extend .two_col_alt
+	figure
+		display: inline-block
+		padding: 0 10px
+		text-align: center
+		float: initial
+		width: 49%
+	figcaption
+		padding: 1.25em 0
+		h2
+			@extend .futuraB
+			text-transform: uppercase
+		span
+			@extend .futura_small
+			text-transform: lowercase
+			display: block
+	@media (max-width: $small_b)
+		figure
+			width: 100%
+			padding: 0
+
+
+
+
+
+
+
+/*  Title w/Gradient */
+.white_title
+	@extend .x_pad
+	width: 100%
+	position: relative
+	.white_mask
+		+transition(all ease 1s)
+		opacity: 0
+	.title
+		+transition(all ease 0.8s)
+		color: $c_white
+		bottom: 14em
+		h1
+			@extend .century_big
+		b
+			@extend .futuraB
+
+.display_title
+	.white_mask
+		+transition(all ease 1s)
+		opacity: 1
+	.title
+		+transition(all ease 0.8s)
+		bottom: 0
+		color: $c_black
+
+
+
+
+
+/* Title Single Properties */
+.title
+	@extend .x_pad
+	@extend .mleft
+	margin-bottom: 5.5em 
+	width: 46em
+	position: relative
+	z-index: 2
+	@media (max-width: $tablet_b)
+		margin-bottom: 2em
+
+
+.two_columns
+	opacity: 1
+	position: relative
+	z-index: 2
+	ul
+		@extend .mleft
+		li		
+			vertical-align: top
+			width: 46.5%
+			padding-right: 2em
+			float: initial
+			display: inline-block
+@media (max-width: $med_b)
+	.title
+		width: 100%
+	.two_columns
+		ul
+			li
+				width: 100%
+				padding-right: 0
+				margin-bottom: 1em
+
+
+
+
+
+
+
+/* Bg Img Block w/Half Columns*/
+.entire_halfs
+	@extend .x_pad
+	@extend .y_pad	
+	@extend .bg_img
+	padding-bottom: 8em
+	.title
+		h1
+			@extend .futuraB_big
+	.coal_mask
+		@extend .mask
+	@media (max-width: $tablet_b)
+		padding-bottom: 2em
+
+
+
+
+
+
+/* Fourths */
+.servicios
+	@extend .x_pad
+	@extend .y_pad
+	.title
+		margin-bottom: 3em
+		h1
+			@extend .futuraB_big
+	ul
+		@extend .mleft
+		overflow: hidden
+	li
+		font-size: 18px
+		display: inline-block
+		vertical-align: top
+		position: relative
+		width: 25%
+		margin: 0 1em 1em 0
+		.imagen
+			font-size: 0
+			position: relative
+		.titulo
+			@extend .table_cell
+			display: block
+			position: absolute
+			top: 0
+			left: 0
+			width: 100%
+			height: 100%
+			a
+				+transition(all ease 0.3s)
+				@extend .futuraB_med
+				height: 15em
+				display: table
+				color: $c_white
+				text-align: center
+				width: 100%
+				height: 100%
+				.txt
+					@extend .table_cell
+		.titulo:hover
+			a
+				+transition(all ease 0.3s)
+				@extend .coal_mask
+				text-decoration: underline
+				color: $c_white
+	@media (max-width: $med_b)
+		li
+			width: 30%
+			margin: 0 2% 2% 0
+	@media (max-width: $tablet_b)
+		.title
+			margin-bottom: 2em
+		li
+			width: 47%
+			margin: 0 2% 2% 0
+	@media (max-width: $small_b)
+		li
+			width: 100%
+			margin: 0 0 1em 0
+.gmap
+	@extend .x_box_pad
+	@media (max-width: $med_b)
+		padding-left: 0

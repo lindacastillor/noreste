@@ -1,0 +1,152 @@
+/* Set up */
+
+// Breaks
+$wide_b: 1400px
+$med_b: 1100px
+$tablet_b: 768px
+$small_b: 600px
+
+// Susy  Settings
+$susy: ( columns: 12, gutters: 1/2, math: fluid, output: float, gutter-position: inside, global-box-sizing: border-box)
+
+// Colors
+$c_white: #FFF
+$c_black: #000
+$c_coal: #242121
+$c_grayL: #e9e9eb
+$c_grayM: #fafaf9
+$c_rosa: #d8006C
+$c_grape: #902061
+
+img
+	width: 100%
+	height: auto
+
+.bg_img
+	+background-size(cover)
+	background-position: center
+
+.mask
+	position: absolute
+	width: 100%
+	height: 100%
+	top: 0
+	left: 0
+
+.center
+	position: absolute
+	left: 0
+	right: 0
+	margin-left: auto
+	margin-right: auto
+
+.letter_spacing
+	letter-spacing: 0.05em
+
+.table
+	display: table
+	width: 100%
+	height: 100%
+
+.table_cell
+	display: table-cell
+	vertical-align: middle
+
+button
+	+appearance(none)
+	+border-radius(0)
+	border: none
+	background-color: rgba(0, 0, 0, 0)
+	cursor: pointer
+	border: none
+
+input, textarea
+	+appearance(none)
+	+border-radius(0)
+	border: none
+	background-color: rgba(0, 0, 0, 0)
+
+input[type="text"], textarea
+	@extend .futuraB_small
+	background-color: $c_white
+	color: $c_coal
+	width: 100%
+	display: block
+	margin-bottom: 1em
+	padding: 1em 1em 1em 1em
+
+input[type="submit"]
+	+transition(all ease 0.3s)
+	@extend .futuraB_small
+	cursor: pointer
+	background-color: $c_coal
+	color: $c_white
+	padding: 1em 2em 1em 2em
+
+input[type="submit"]:hover
+	+transition(all ease 0.3s)
+	background-color: $c_rosa
+
+::-webkit-input-placeholder
+	color: $c_black
+
+::-moz-placeholder
+	color: $c_black
+
+
+
+/* Bg Colors */
+
+.bg_grayM
+	background-color: $c_grayM
+
+.bg_grayL
+	background-color: $c_grayL
+
+.bg_white
+	background-color: $c_white
+
+.bg_coal
+	background-color: $c_coal
+
+
+/* Applied colors */
+
+.coal
+	color: $c_coal
+
+.white
+	color: $c_white
+
+.grape
+	color: $c_grape
+
+
+/* Masks */
+
+.bg_gradient
+	opacity: 0.4
+	background: -moz-linear-gradient(top,  rgba(0,0,0,0) 44%, rgba(0,0,0,0.02) 45%, rgba(0,0,0,1) 99%, rgba(0,0,0,1) 100%)
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(44%,rgba(0,0,0,0)), color-stop(45%,rgba(0,0,0,0.02)), color-stop(99%,rgba(0,0,0,1)), color-stop(100%,rgba(0,0,0,1)))
+	background: -webkit-linear-gradient(top,  rgba(0,0,0,0) 44%,rgba(0,0,0,0.02) 45%,rgba(0,0,0,1) 99%,rgba(0,0,0,1) 100%)
+	background: -o-linear-gradient(top,  rgba(0,0,0,0) 44%,rgba(0,0,0,0.02) 45%,rgba(0,0,0,1) 99%,rgba(0,0,0,1) 100%)
+	background: -ms-linear-gradient(top,  rgba(0,0,0,0) 44%,rgba(0,0,0,0.02) 45%,rgba(0,0,0,1) 99%,rgba(0,0,0,1) 100%)
+	background: linear-gradient(to bottom,  rgba(0,0,0,0) 44%,rgba(0,0,0,0.02) 45%,rgba(0,0,0,1) 99%,rgba(0,0,0,1) 100%)
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00000000', endColorstr='#000000',GradientType=0 )
+
+.white_mask
+	position: absolute
+	width: 100%
+	background: url("../img/white_bg.png") repeat-x bottom
+	background-size: 1px 40%
+	opacity: 1
+	bottom: 0
+	left: 0
+	top: -34em
+	height: 40em
+
+.gray_mask
+	background-color: rgba(233, 233, 233, 0.9)
+
+.coal_mask
+	background-color: rgba(36, 33, 33, 0.9)	

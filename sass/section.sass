@@ -1,0 +1,174 @@
+header
+	@extend .x_pad
+	background-color: $c_grayM
+	position: fixed
+	z-index: 3
+	width: 100%	
+	padding-top: 1em
+	padding-bottom: 0.5em
+	top: 0
+	display: table
+	.logo
+		max-width: 115px
+		width: 10%
+		margin-left: 5.5em
+		display: inline-block
+	.burger
+		display: none
+		width: 1.5em
+		padding: 0.5em
+		width: 3em
+		float: right
+		vertical-align: top
+		> div
+			+transition(all 0.3s ease)
+			background-color: $c_black
+			height: 2px
+			margin-bottom: 5px
+		> div:nth-last-child(1)
+			margin-bottom: 0
+	nav
+		display: inline-block
+		width: 75%
+		margin-top: 0.5em
+		float: right
+		.st-menu
+			> li
+				@extend .futuraB_small
+				@include span(3 split)
+				text-align: right
+				text-transform: uppercase
+			> li:hover
+				a
+					color: $c_grape
+	@media (max-width: $med_b)
+		.logo
+			margin-left: 0
+	@media (max-width: $tablet_b)
+		.logo
+			width: auto
+		.burger
+			display: inline-block
+		nav
+			+transition(all 0.3s ease)
+			opacity: 0
+			visibility: hidden
+			width: 100%
+			height: 0
+			.st-menu
+				li
+					width: 100%
+					padding: 1em 0
+					text-align: center
+
+
+
+
+header.show
+	.burger
+		div:nth-child(1)
+			+transform( rotate(45deg) )
+			position: relative
+			top: 0px
+		div:nth-child(2)
+			+transform( rotate(-45deg) )
+			position: relative
+			top: -7px
+		div:nth-child(3)
+			opacity: 0
+	nav
+		+transition(all 0.3s ease)
+		opacity: 1
+		visibility: visible
+		height: auto
+
+
+
+
+
+/* Footer */ 
+footer
+	@extend .y_pad_top
+	overflow: hidden	
+	position: relative
+	color: $c_white
+	background-color: $c_white
+	.sitemap	
+		@extend .x_pad
+		@extend .two_col_alt
+		width: 100%
+		.links
+			@extend .two_col_alt
+			margin-top: 3em
+			div:nth-child(1)
+				@extend .mleft
+				font-size: 18px
+			> div
+				@extend .futuraB_small
+				img
+					max-width: 115px
+				li
+					display: block
+				a
+					margin-bottom: 0.5em
+					display: block
+					text-transform: uppercase
+				a:hover
+					color: $c_rosa
+		.social
+			ul
+				@extend .two_col_alt
+				width: 100%
+			li
+				display: block
+			a
+				+transition(all ease 0.3s)
+				@extend .futuraB_reg
+				display: table
+				text-align: center
+				width: 100%
+				height: 16em
+				background-color: $c_grayL
+				color: $c_black
+				p
+					vertical-align: middle
+					display: table-cell
+			a:hover
+				+transition(all ease 0.3s)
+				background-color: $c_coal
+				color: $c_white
+				text-decoration: underline
+	.info
+		@extend .y_box_pad
+		@extend .x_pad
+		@extend .two_col_alt
+		width: 100%
+		background-color: $c_coal
+		.txt
+			@extend .futura_small
+			@extend .two_col
+			line-height: 1.75em
+			li
+				vertical-align: top
+			a
+				color: $c_white
+			b
+				@extend .futuraB
+		.frase
+			@extend .mleft
+			p
+				@extend .futuraB_med
+			span
+				@extend .century_reg
+				display: block
+				margin-top: 1.5em
+			a
+				color: $c_white
+			b
+				@extend .futuraB
+	@media (max-width: $tablet_b)
+		.sitemap
+			.links
+				li
+					a
+						padding: 0.25em 0

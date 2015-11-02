@@ -1,0 +1,104 @@
+/* Font setup */
+ 
+@font-face
+	font-family: "century"
+	src: url('../fonts/Century.otf')
+@font-face
+	font-family: "futura_book"
+	src: url('../fonts/FuturaStd-Book.otf')
+@font-face
+	font-family: "futura_heavy"
+	src: url('../fonts/FuturaStd-Heavy.otf')
+	
+body
+	font-family: 'futura_book', Helvetica, arial
+	font-size: 18px
+	line-height: normal
+	padding-top: 3.5em
+	color: $c_black
+	@media (max-width: $med_b)
+		font-size: 14px
+	@media (max-width: $tablet_b)
+		padding-top: 4.5em
+
+/* FuturaBook */
+	
+.futura_small
+	font-family: 'futura_book'
+	font-size: 0.778em
+
+.futura_reg
+	font-family: 'futura_book'
+	font-size: 1em
+
+.futura_med
+	font-family: 'futura_book'
+	font-size: 1.333em
+
+.futura_big
+	font-family: 'futura_book'
+	font-size: 2em
+	@media (max-width: $small_b)
+		font-size: 1.5em
+		line-height: 1.5em
+
+.futura_huge
+	font-family: 'futura_book'
+	font-size: 2.667em
+	@media (max-width: $small_b)
+		font-size: 1.5em
+
+/* FuturaHeavy */
+.futuraB
+	font-family: 'futura_heavy'	
+
+.futuraB_small
+	font-family: 'futura_heavy'
+	font-size: 0.778em
+
+.futuraB_reg
+	font-family: 'futura_heavy'
+	font-size: 1em
+
+.futuraB_med
+	font-family: 'futura_heavy'
+	font-size: 1.333em
+
+.futuraB_big
+	font-family: 'futura_heavy'
+	font-size: 2em
+	@media (max-width: $small_b)
+		font-size: 1.5em
+
+.futuraB_huge
+	font-family: 'futura_heavy'
+	font-size: 2.667em
+	@media (max-width: $small_b)
+		font-size: 1.5em
+
+/* Century */
+.century
+	font-family: 'century'
+
+.century_reg
+	font-family: 'century'
+	font-size: 1em
+
+.century_med
+	font-family: 'century'
+	font-size: 1.333em
+
+.century_big
+	font-family: 'century'
+	font-size: 2em
+	@media (max-width: $small_b)
+		font-size: 1.5em
+
+/* Reset */
+.med	
+	font-size: 1.333em
+
+.big
+	font-size: 2em
+	@media (max-width: $small_b)
+		font-size: 1.5em

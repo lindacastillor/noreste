@@ -1,0 +1,154 @@
+.x_pad
+	@media (min-width: $wide_b)
+		padding-left: 14em
+		padding-right: 14em
+	@media (max-width: $wide_b)
+		padding-left: 5em
+		padding-right: 5em
+	@media (max-width: $tablet_b)
+		padding-left: 4em
+		padding-right: 4em
+	@media (max-width: $small_b)
+		padding-left: 2em
+		padding-right: 2em
+
+.y_pad
+	padding-top: 5.5em
+	padding-bottom: 5.5em
+	@media (max-width: $tablet_b)
+		padding-top: 2em
+		padding-bottom: 2em
+
+.y_pad_top
+	padding-top: 5.5em
+	@media (max-width: $tablet_b)
+		padding-top: 2em
+
+.y_mtop
+	margin-top: 5.5em
+	@media (max-width: $tablet_b)
+		margin-top: 2em
+
+.x_box_pad
+	padding-left: 6em
+	padding-right: 6em
+	@media(min-width: $wide_b)
+		padding-left: 6em
+		padding-right: 6em
+	@media (max-width: $wide_b)
+		padding-left: 2.5em
+		padding-right: 2.5em
+	@media (max-width: $tablet_b)
+		padding-left: 4em
+		padding-right: 4em
+	@media (max-width: $small_b)
+		padding-left: 2em
+		padding-right: 2em
+
+.y_box_pad
+	padding-top: 5.5em
+	padding-bottom: 5.5em
+	@media (min-width: $med_b)
+		padding-top: 5.5em
+		padding-bottom: 5.5em
+	@media (max-width: $tablet_b)
+		padding-top: 2em
+		padding-bottom: 2em
+.mtb3
+	margin-top: 1em
+	@media (max-width: $small_b)
+		margin-bottom: 1em
+		margin-top: 1em
+
+.mleft
+	padding-left: 5.5em
+	@media (max-width: $med_b)
+		padding-left: 0	
+		
+/* Grid */
+
+
+.four_col
+	display: inline-block
+	> div, > li, > figure
+		@include span(3 split)
+		position: relative
+		display: inline-block
+		@media (max-width: $med_b)
+			@include span(4 split)
+		@media (max-width: $small_b)
+			@include span(12 split)
+
+.four_col_alt
+	> div, > li, > figure
+		@include span(3 split)
+		position: relative
+		@media (max-width: $wide_b)
+			@include span(6 split)
+		@media (max-width: $small_b)
+			@include span(12 split)
+
+.two_col
+	float: left
+	> div, > li, > figure
+		@include span(6 split)
+		position: relative
+		@media (max-width: $tablet_b)
+			@include span(12 split)
+
+.two_col_alt
+	float: left
+	> div, > li, > figure
+		@include span(6 no-gutters)
+		position: relative
+		@media (max-width: $tablet_b)
+			@include span(12 no-gutters)
+
+.three_col_alt
+	> div, > li, > figure
+		@include span(4 no-gutters)
+		position: relative
+		@media (min-width: $wide_b)
+			@include span(3 no-gutters)
+		@media (max-width: $tablet_b)
+			@include span(12 no-gutters)
+
+// Applied
+section
+	position: relative
+	overflow: hidden
+
+//Masonry
+.masonry_column
+	width: 24%
+
+.masonry_gutter
+	width: 1%
+
+.masonry_item > li
+	width: 24%
+	padding: 10px 10px 10px 0
+	float: left	
+	@media (max-width: $tablet_b)
+		width: 49%!important
+	@media (max-width: $small_b)
+		width: 100%!important
+
+.masonry_item > li:nth-child(8n+1), .masonry_item > li:nth-child(8n+2)
+	width: 24%
+
+.masonry_item > li:nth-child(8n+3), .masonry_item > li:nth-child(8n+4)
+	width: 49%
+
+.masonry_item > li:nth-child(8n+5)
+	width: 24%
+
+.masonry_item > li:nth-child(8n+6)
+	width: 24%
+
+.masonry_item > li:nth-child(8n+7)
+	width: 49%
+
+.masonry_item > li:nth-child(8n+8)
+	width: 49%
+
