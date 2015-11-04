@@ -76,27 +76,28 @@
 <body>
 	<header>
 		<div class="logo">
-			<a href="index.php"><img src="img/logo_black.svg"></a>
+			<a href="<?php echo esc_url(home_url('/')); ?>"><img src="<?php bloginfo('template_url'); ?>/img/logo_black.svg"></a>
 		</div>
 
 		<a href="javascript:void(0)" class="burger">
 			<div></div><div></div><div></div>
-		</a>
+		</a><?php
+
+
+		$post_objects = get_field('menu', 'options'));
+		if($post_objects) : ?>
 
 		<nav>
-			<ul class="st-menu">
+			<ul class="st-menu"><?php
+			foreach ($post_objects as $post) :
+				setup_postdata($post); ?>
 				<li>
-					<a href="proyectos.php">proyectos</a>
-				</li>
-				<li>
-					<a href="nosotros.php">nosotros</a>
-				</li>
-				<li>
-					<a href="servicios.php">servicios/proceso</a>
-				</li>
-				<li>
-					<a href="contacto.php">contacto</a>
-				</li>
+					<a href="<?php the_permalink(); ?>"><?php the_title(); ?></a>
+				</li><?php
+
+			endforeach; ?>
 			</ul>
-		</nav>
+		</nav><?php
+
+		endif; ?>
 	</header>
