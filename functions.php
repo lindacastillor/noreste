@@ -112,31 +112,66 @@
 
 /*
  *  Hide Menu Items for Editors
-
-  function hide_menu() {
-    global $current_user;
-    $user_id = get_current_user_id();
-    // echo "user:".$user_id;   // Use this to find your user id quickly
-
-    if($user_id != '1') {
-
-      remove_menu_page( 'index.php' );                    //Dashboard
-      remove_menu_page( 'upload.php' );                   //Media
-      remove_menu_page( 'edit-comments.php' );            //Comments
-      remove_menu_page( 'plugins.php' );                  //Plugins
-        remove_submenu_page( 'themes.php', 'themes.php' );
-        remove_submenu_page( 'themes.php', 'theme-editor.php' );
-        remove_submenu_page( 'themes.php', 'customize.php' );
-      remove_menu_page( 'nav-menus.php' );                //Editar Menus
-      // remove_menu_page( 'users.php' );                   Users
-      remove_menu_page( 'tools.php' );                    //Tools
-      remove_menu_page( 'options-general.php' );          //Settings
-      remove_menu_page( 'edit.php?post_type=acf' );       //Advanced Custom Fields
-      remove_menu_page( 'admin.php?page=cpt_main_menu' ); //Custom Post Types
-      remove_menu_page( 'themes.php' );           //Custom Fields
-    }
-  }
-
-  add_action('admin_head', 'hide_menu');
-
  */
+
+	function hide_menu() {
+		global $current_user;
+		$user_id = get_current_user_id();
+
+		if($user_id != '1') {
+			remove_menu_page( 'index.php' );                    //Dashboard
+			remove_menu_page( 'upload.php' );                   //Media
+			remove_menu_page( 'edit-comments.php' );            //Comments
+			remove_menu_page( 'plugins.php' );                  //Plugins
+			remove_submenu_page( 'themes.php', 'themes.php' );
+			remove_submenu_page( 'themes.php', 'theme-editor.php' );
+			remove_submenu_page( 'themes.php', 'customize.php' );
+			remove_menu_page( 'nav-menus.php' );                //Editar Menus
+			// remove_menu_page( 'users.php' );                   Users
+			remove_menu_page( 'tools.php' );                    //Tools
+			remove_menu_page( 'options-general.php' );          //Settings
+			remove_menu_page( 'edit.php?post_type=acf' );       //Advanced Custom Fields
+			remove_menu_page( 'admin.php?page=cpt_main_menu' ); //Custom Post Types
+			remove_menu_page( 'themes.php' );           //Custom Fields
+
+		}
+	}
+
+	add_action('admin_head', 'hide_menu');
+
+
+
+
+/*
+ *  Change Posts => Log
+ */
+
+	function revcon_change_post_label() {
+		global $menu;
+		global $submenu;
+		$menu[5][0] = 'Proyectos';
+		$submenu['edit.php'][5][0] = 'Proyectos';
+		$submenu['edit.php'][10][0] = 'Proyecto nuevo';
+		// $submenu['edit.php'][16][0] = 'Nuevas Etiquetas';
+		echo '';
+	}
+	function revcon_change_post_object() {
+		global $wp_post_types;
+		$labels = &$wp_post_types['post']->labels;
+		$labels->name = 'Proyectos';
+		$labels->singular_name = 'Proyecto';
+		$labels->add_new = 'Nuevo';
+		$labels->add_new_item = 'Proyecto nuevo';
+		$labels->edit_item = 'Editar proyecto';
+		$labels->new_item = 'Nuevo';
+		$labels->view_item = 'Ver proyecto';
+		$labels->search_items = 'Buscar en Proyectos';
+		$labels->not_found = 'No se encontraron Proyectos';
+		$labels->not_found_in_trash = 'No hay proyectos en la basura';
+		$labels->all_items = 'Todos los Proyectos';
+		$labels->menu_name = 'Proyectos';
+		$labels->name_admin_bar = 'Proyecto';
+	}
+
+	add_action( 'admin_menu', 'revcon_change_post_label' );
+	add_action( 'init', 'revcon_change_post_object' );
