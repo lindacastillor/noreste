@@ -32,7 +32,7 @@
 			while(have_rows('redes', 'options')) :
 				the_row(); ?>
 				<li>
-					<a href="<?php the_sub_field('url'); ?>"><?php the_sub_field('name'); ?></a>
+					<a href="<?php the_sub_field('url'); ?>"><p><?php the_sub_field('name'); ?></p></a>
 				</li><?php
 			endwhile; ?>
 			</ul>
