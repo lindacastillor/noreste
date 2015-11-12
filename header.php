@@ -13,6 +13,7 @@
 
 	<link rel="stylesheet" href="<?php bloginfo('template_url'); ?>/css/reset.css"/>
 	<link rel="stylesheet" href="<?php bloginfo('stylesheet_url'); ?>"/>
+	<link rel="stylesheet" href="<?php bloginfo('template_url'); ?>/css/shame.css"/>
 
 	<script src="//code.jquery.com/jquery-1.10.2.js"></script>
 	<script src="<?php bloginfo('template_url'); ?>/js/responsiveslides.min.js"></script>
@@ -73,7 +74,7 @@
 
 </head>
 
-<body>
+<body <?php body_class(); ?>>
 	<header>
 		<div class="logo">
 			<a href="<?php echo esc_url(home_url('/')); ?>"><img src="<?php bloginfo('template_url'); ?>/img/logo_black.svg"></a>
@@ -84,7 +85,7 @@
 		</a><?php
 
 
-		$post_objects = get_field('menu', 'options'));
+		$post_objects = get_field('menu', 'options');
 		if($post_objects) : ?>
 
 		<nav>
@@ -94,6 +95,7 @@
 				<li>
 					<a href="<?php the_permalink(); ?>"><?php the_title(); ?></a>
 				</li><?php
+				wp_reset_postdata();
 
 			endforeach; ?>
 			</ul>
