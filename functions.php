@@ -175,3 +175,32 @@
 
 	add_action( 'admin_menu', 'revcon_change_post_label' );
 	add_action( 'init', 'revcon_change_post_object' );
+
+
+
+
+
+	/*
+	 *  Img call Functions
+	 */
+
+	function imgObj($imgObj, $size){
+		echo '<div class="'.$size.'"><img src="'.$imgObj['sizes']['large'].'"></div>';
+	}
+
+	function full_bgImg($img, $imgID){
+		if($img){
+			$img_med = wp_get_attachment_image_src($img, 'medium');
+			$img_large = wp_get_attachment_image_src($img, 'large');
+			$img_larger = wp_get_attachment_image_src($img, 'larger');
+			$img_largest = wp_get_attachment_image_src($img, 'largest');
+			$img_huge = wp_get_attachment_image_src($img, 'full-size');
+
+			echo '<style> '.$imgID.' {background-image: url(' . $img_med[0] . ');}';
+			if($img_med) { echo ' @media (min-width: 600px) { '.$imgID.' {background-image: url(' . $img_large[0] . ');} }'; }
+			if($img_large) { echo ' @media (min-width: 1024px) { '.$imgID.' {background-image: url(' . $img_larger[0] . ');} }'; }
+			if($img_larger) { echo ' @media (min-width: 1400px) { '.$imgID.' {background-image: url(' . $img_largest[0] . ');} }'; }
+			if($img_largest) { echo ' @media (min-width: 1800px) { '.$imgID.' {background-image: url(' . $img_huge[0] . ');} }'; }
+			echo '</style>';
+		}
+	}
