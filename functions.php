@@ -204,3 +204,11 @@
 			echo '</style>';
 		}
 	}
+
+	function inOut($sel) {
+		if($sel == 'exterior') {
+			echo 'Exterior';
+		} else {
+			echo 'Interior';
+		}
+	}
