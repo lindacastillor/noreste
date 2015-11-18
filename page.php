@@ -7,6 +7,118 @@
 	get_header();
 
 
+	$slider = get_field('slider');
+	$count = count($slider);
+	if($slider) {
+		$n = 1; ?>
+		<div class="wrapper" id="huge_slide">
+			<ul class="rslides slide" id="slider1"><?php
+				while (have_rows('slider')) { the_row(); ?>
+					<li>
+						<div class="img" id="homeBgImg<?php echo $n; ?>" data-type="background" data-speed="10"><?php
+							$orImg = get_sub_field('img-or');
+							$pO = get_sub_field('post');
+							if($pO) {
+							$post = $pO;
+							setup_postdata($post); ?>
+
+								<div>
+									<div class="mask"></div>
+									<div class="titulo"><a href="<?php the_permalink(); ?>"><p><?php the_title(); ?></p></a></div>
+								</div><?php
+								if($orImg) {
+									$img = $orImg;
+								} else {
+									$img = get_post_thumbnail_id( $post->ID );
+								}
+								full_bgImg($img, '#homeBgImg'.$n++);
+
+							wp_reset_postdata();
+							} ?>
+						</div>
+					</li><?php
+				} ?>
+			</ul><?php
+	// } if($slider) {
+		if($count > 1) {
+		$n = 1; ?>
+			<ul class="slide-pager" id="slider3-pager"><?php
+			while (have_rows('slider')) { the_row(); ?>
+				<li><a href="#tab<?php echo $n; ?>"><p><?php echo $n++; ?></p></a></li><?php
+			} ?>
+			</ul><?php
+		} ?>
+		</div><?php
+	}
+
+
+
+
+	if(get_field('flex')) {
+		while (have_rows('flex')) : the_row();
+			if(get_row_layout() == 'content') : ?>
+			<section class="bg_grayM">
+				<div class="quote">
+					<div class="full">
+						<?php the_sub_field('content'); ?>
+					</div>
+				</div>
+			</section><?php
+
+
+			elseif (get_row_layout() == 'bloques') : ?>
+			<section class="halfs">
+				<ul><?php
+					while(have_rows('repeater')) : the_row(); ?>
+
+					<li class="<?php // hide_half ?>">
+						<div class="imagen"><?php
+							$images = get_sub_field('gallery');
+							$count = count($images);
+							$n = 1;
+							if($count > 1) { ?>
+
+								<ul class="rslides slide" id="slider2"><?php
+									foreach ($images as $image) { ?>
+										<li><?php
+											imgObj($image, 'half_img'); ?>
+										</li><?php
+									} ?>
+								</ul>
+								<ul class="slide-pager" id="slider2-pager"><?php
+									foreach ($images as $image) { ?>
+										<li><a href="#tab<?php echo $n; ?>"><p><?php echo $n++; ?></p></a></li><?php
+									} ?>
+								</ul><?php
+
+							} else {
+								foreach ($images as $image) {
+									imgObj($image, 'half_img');
+								}
+							} ?>
+						</div>
+						<div class="titulo" style="background-image: url('img/590.jpg');">
+							<a href="<?php the_sub_field('post'); ?>">
+								<div class="txt">
+									<div>
+										<?php the_sub_field('content'); ?>
+									</div>
+								</div>
+							</a>
+						</div>
+					</li><?php
+
+					endwhile; ?>
+				</ul>
+			</section><?php
+
+			endif;
+		endwhile;
+	}
+
+
+
+
 	if(get_field('excerpt')) { ?>
 		<section class="bg_coal">
 			<div class="quote">
