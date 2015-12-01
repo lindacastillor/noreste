@@ -157,7 +157,7 @@
 					<h1>Servicios</h1>
 				</div>
 				<ul><?php
-				while (have_rows('service_list')) { ?>
+				while (have_rows('service_list')) { the_row(); ?>
 					<li><?php
 
 						if(get_sub_field('img')){
