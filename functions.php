@@ -5,6 +5,7 @@
  */
 
 	add_theme_support( 'post-thumbnails' );
+	add_editor_style('css/wysiwyg.css');
 
 
 
@@ -98,14 +99,32 @@
 	//  Editar styleselect
 	function my_mce_before_init_insert_formats( $init_array ) {
 		$style_formats = array(
-			array( 'title' => 'Titulo', 'block' => 'h1'),
-			array( 'title' => 'Subtitulo', 'block' => 'h2'),
-			array( 'title' => 'Párrafo', 'block' => 'p')
+			// array( 'title' => 'Titulo', 'block' => 'h1'),
+			// array( 'title' => 'Subtitulo', 'block' => 'h2'),
+			// array( 'title' => 'Párrafo', 'block' => 'p'),
+			array( 'title' => 'Sans-serif', 'block' => 'span', 'classes' => 'futuraB', 'wrapper' => true, 'inline' => true),
+			array( 'title' => 'Serif', 'block' => 'span', 'classes' => 'century_big', 'wrapper' => true, 'inline' => true)
 		);
 		$init_array['style_formats'] = json_encode( $style_formats );
 		return $init_array;
 	}
 	add_filter( 'tiny_mce_before_init', 'my_mce_before_init_insert_formats' );
+
+
+	/*	ACF - WYSIWYG  */
+	add_filter( 'acf/fields/wysiwyg/toolbars' , 'my_toolbars'  );
+	function my_toolbars( $toolbars ) {
+
+		$toolbars['Normal' ] = array();
+		$toolbars['Normal' ][1] = array('styleselect' , 'bold', 'underline' , 'alignleft aligncenter' , 'bullist' , 'link' , 'unlink' , 'removeformat');
+
+		// remove the 'Full' toolbar completely
+		unset( $toolbars['Full' ] );
+		unset( $toolbars['Basic' ] );
+
+		// return $toolbars - IMPORTANT!
+		return $toolbars;
+	}
 
 
 
