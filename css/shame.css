@@ -4,3 +4,73 @@
 .admin-bar header {
 	top: 32px;
 }
+
+
+
+/* Limpiar en SASS */
+
+#huge_slide .slide li .titulo img{
+	max-width: 20em;
+	margin: 0 auto;
+}
+
+.futura_bold_big span a{
+	text-decoration: underline;
+}
+
+.futura_bold_big{
+	font-family: "futura_heavy";
+	text-decoration: underline;
+	margin-bottom: 0.5em;
+	font-size: 2.667em; }
+	@media (max-width: 600px) {
+		.futura_bold_big {
+			font-size: 1.5em; } }
+}
+
+.futura_book_small{
+	font-family: "futura_book";
+	font-size: 16px!important;
+}
+
+div.wpcf7 img.ajax-loader{
+	display: none;
+}
+
+.wpcf7-textarea{
+	height: 5em;
+}
+
+input[type="text"], textarea{
+	margin-bottom: 0;
+}
+
+ul.st-menu {
+	text-align: right;
+}
+header nav .st-menu > li {
+	width: inherit;
+	float: none;
+	margin-left: 4em;
+	display: inline-block;
+}
+
+
+
+input[type=radio]:checked + label,
+input[type=radio].active + label {
+	color: #902061;
+	text-decoration: underline;
+}
+label {
+	cursor: pointer;
+}
+
+.filtro .categoria li:after {
+	content: " — ";
+}
+
+.filtro .titulo li {
+	font-family: "century";
+	font-size: 1.333em;
+}
