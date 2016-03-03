@@ -9,7 +9,14 @@ get_header(); ?>
 			<h1><?php the_title(); ?></h1>
 		</div>
 		<div class="categoria">
-			<?php the_category(); ?>
+			<?php
+			$posttags = get_the_tags();
+			if ($posttags) {
+				foreach($posttags as $tag) {
+					echo '<span>' . $tag->name . '</span> ';
+				}
+			}
+			?>
 		</div>
 	</div>
 </section><?php
