@@ -23,19 +23,17 @@
 					</ul>
 				</div>
 				<div class="categoria">
-					<ul><?php
+					<ul>
+						<?php
+						$tags = get_tags();
+						foreach ( $tags as $tag ) {
+							$tag_link = get_tag_link( $tag->term_id );
 
-						$categories = get_categories();
-
-						foreach ($categories as $cat) {
-							if($cat->category_parent == 0) {
-								if($_GET['category'] == $cat->slug) {
-									$active = 'checked';
-								}
-								echo '<li><input type="radio" name="category" value="' . $cat->slug . '" id="' . $cat->slug . '" ' . $active . '><label for="' . $cat->slug . '">' . $cat->cat_name . '</label></li>';
-								$active = '';
-							}
-						} ?>
+							$html .= "<li> <a href='{$tag_link}' title='{$tag->name} Tag' class='{$tag->slug}'>";
+							$html .= "{$tag->name}</a></li>";
+						}
+						echo $html;
+						?>
 					</ul>
 				</div>
 				<input type="submit" value="Go" style="display:none">
