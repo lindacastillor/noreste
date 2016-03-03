@@ -5,39 +5,36 @@
 
 	<section>
 		<div class="filtro">
-			<form method="get" action="<?php echo esc_url( home_url('proyectos')); ?>">
-				<div class="titulo">
-					<ul>
-						<?php
-						$cat_arguments = array(
-							'orderby' => 'name',
-							'parent' => 0,
-							);
-							$cats = get_categories($cat_arguments);
-							$i = 0;
-							foreach($cats as $category) {
-								if($cat != $category->term_id) { echo '<li><a href="'.get_category_link( $category->term_id ).'" class="' . $category->slug .'">'.$category->name.'</a> '; }
-								else { echo '<li class="active"><a href="'.get_category_link( $category->term_id ).'" class="' . $category->slug .'">'.$category->name.'</a></li>'; }
-							}
-						?>
-					</ul>
-				</div>
-				<div class="categoria">
-					<ul>
-						<?php
-						$tags = get_tags();
-						foreach ( $tags as $tag ) {
-							$tag_link = get_tag_link( $tag->term_id );
-
-							$html .= "<li> <a href='{$tag_link}' title='{$tag->name} Tag' class='{$tag->slug}'>";
-							$html .= "{$tag->name}</a></li>";
+			<div class="titulo">
+				<ul>
+					<?php
+					$cat_arguments = array(
+						'orderby' => 'name',
+						'parent' => 0,
+						);
+						$cats = get_categories($cat_arguments);
+						$i = 0;
+						foreach($cats as $category) {
+							if($cat != $category->term_id) { echo '<li><a href="'.get_category_link( $category->term_id ).'" class="' . $category->slug .'">'.$category->name.'</a> '; }
+							else { echo '<li class="active"><a href="'.get_category_link( $category->term_id ).'" class="' . $category->slug .'">'.$category->name.'</a></li>'; }
 						}
-						echo $html;
-						?>
-					</ul>
-				</div>
-				<input type="submit" value="Go" style="display:none">
-			</form>
+					?>
+				</ul>
+			</div>
+			<div class="categoria">
+				<ul>
+					<?php
+					$tags = get_tags();
+					foreach ( $tags as $tag ) {
+						$tag_link = get_tag_link( $tag->term_id );
+
+						$html .= "<li> <a href='{$tag_link}' title='{$tag->name} Tag' class='{$tag->slug}'>";
+						$html .= "{$tag->name}</a></li>";
+					}
+					echo $html;
+					?>
+				</ul>
+			</div>
 		</div>
 	</section>
 
