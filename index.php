@@ -104,12 +104,20 @@
 				<div class="masonry_gutter"></div>
 				<div class="masonry_column"></div><?php
 
-				$archive_args = array(
-					'post_type' => 'post',
-					'posts_per_page' => -1,
-					'category_name' => $_GET['category'],
-					'post_meta_value' => $_GET['type']
-				);
+				$archive_args = array( 'numberposts' => '3', 'tax_query' => array(
+						array(
+							'taxonomy' => 'post_format',
+							'field' => 'slug',
+							'terms' => 'post-format-aside',
+							'operator' => 'NOT IN'
+						),
+						array(
+							'taxonomy' => 'post_format',
+							'field' => 'slug',
+							'terms' => 'post-format-image',
+							'operator' => 'NOT IN'
+						)
+				) );
 
 				$archive_query = new WP_Query( $archive_args );
 				while ( $archive_query->have_posts() ) : $archive_query->the_post(); ?>
@@ -124,7 +132,9 @@
 								<div>
 									<h1>
 										<?php the_title(); ?>
-										<span><?php inOut(get_field('opts_inout')); ?></span>
+										<?php foreach((get_the_category()) as $category) {
+										echo '<span>' . $category->name . '</span> ';
+										} ?>
 									</h1>
 								</div>
 							</div>
