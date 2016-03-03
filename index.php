@@ -8,14 +8,18 @@
 			<form method="get" action="<?php echo esc_url( home_url('proyectos')); ?>">
 				<div class="titulo">
 					<ul>
-						<li>
-							<input type="radio" name="type" value="exterior" id="exterior" <?php if($_GET['type'] == 'exterior') { echo 'checked'; } ?>>
-							<label for="exterior">Proyectos Arquitectónicos</label>
-						</li>
-						/<li>
-							<input type="radio" name="type" value="interior" id="interior" <?php if($_GET['type'] == 'interior') { echo 'checked'; } ?>>
-							<label for="interior">Diseño de Interiores</label>
-						</li>
+						<?php
+						$cat_arguments = array(
+							'orderby' => 'name',
+							'parent' => 0,
+							);
+							$cats = get_categories($cat_arguments);
+							$i = 0;
+							foreach($cats as $category) {
+								if($cat != $category->term_id) { echo '<li><a href="'.get_category_link( $category->term_id ).'" class="' . $category->slug .'">'.$category->name.'</a> '; }
+								else { echo '<li class="active"><a href="'.get_category_link( $category->term_id ).'" class="' . $category->slug .'">'.$category->name.'</a></li>'; }
+							}
+						?>
 					</ul>
 				</div>
 				<div class="categoria">
