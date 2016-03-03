@@ -318,7 +318,7 @@ section {
 
 .masonry_item > li {
   width: 24%;
-  padding: 10px 10px 0 0;
+  padding: 10px 10px 10px 0;
   float: left; }
   @media (max-width: 768px) {
     .masonry_item > li {
@@ -331,7 +331,7 @@ section {
   width: 24%; }
 
 .masonry_item > li:nth-child(8n+3), .masonry_item > li:nth-child(8n+4) {
-  width: 48%; }
+  width: 49%; }
 
 .masonry_item > li:nth-child(8n+5) {
   width: 24%; }
@@ -340,10 +340,10 @@ section {
   width: 24%; }
 
 .masonry_item > li:nth-child(8n+7) {
-  width: 48%; }
+  width: 49%; }
 
 .masonry_item > li:nth-child(8n+8) {
-  width: 48%; }
+  width: 49%; }
 
 /* Font setup */
 @font-face {
