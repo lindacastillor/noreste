@@ -67,10 +67,29 @@ label {
 }
 
 .filtro .categoria li:after {
-	content: " — ";
+	content: "\00a0—\00a0";
 }
 
 .filtro .titulo li {
 	font-family: "century";
-	font-size: 1.333em;
+	font-size: 1.333em;}
+
+.filtro .titulo li.active a{
+	color: #902061;
+	text-decoration: underline;}
+
+.filtro .categoria li.active a{
+	color: #902061;}
+.filtro .categoria li a {
+	font-family: "futura_book";
+	font-size: 18px;}
+.filtro .categoria li a:hover {
+	font-family: "futura_book";
+	text-decoration: none;}
+
+.filtro .titulo li:nth-child(1):after{
+	content: '/\00a0';}
+
+.entire_halfs b, .entire_halfs strong {
+	font-family: "futura_heavy";
 }

@@ -21,8 +21,10 @@
 	<script>
 		$(function () {
 			$("#slider1").responsiveSlides({
+				speed: 500,
+				timeout: 5000,
 				pager: false,
-				auto: false,
+				auto: true,
 				nav: false,
 				manualControls: '#slider3-pager'
 			});
