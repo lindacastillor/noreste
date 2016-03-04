@@ -93,3 +93,7 @@ label {
 .entire_halfs b, .entire_halfs strong {
 	font-family: "futura_heavy";
 }
+
+#contacto .entire_halfs .two_columns p {
+	font-size: 24px;
+}
