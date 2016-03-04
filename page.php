@@ -24,7 +24,12 @@
 
 								<div>
 									<div class="mask"></div>
-									<div class="titulo"><a href="<?php the_permalink(); ?>"><p><?php the_title(); ?></p></a></div>
+									<div class="titulo">
+										<?php if( get_sub_field('titulo_slide')) { ?>
+											<?php the_sub_field('titulo_slide'); ?>
+										<?php } else {?>
+											<a href="<?php the_permalink(); ?>"><h1 class="futura_bold_big"><?php the_title(); ?></h1> <span class="futura_book_small">Ver Proyecto</span></a></div>
+										<?php } ?>
 								</div><?php
 								if($orImg) {
 									$img = $orImg;
@@ -97,7 +102,7 @@
 								}
 							} ?>
 						</div>
-						<div class="titulo" style="background-image: url('img/590.jpg');">
+						<div class="titulo" style="background-image: url('<?php the_sub_field('bg_img'); ?>');">
 							<a href="<?php the_sub_field('post'); ?>">
 								<div class="txt">
 									<div>
@@ -138,7 +143,7 @@
 			<div class="wrapper" id="huge_slide">
 				<ul class="rslides slide" id="slider1">
 					<li>
-						<div class="img" id="ftd_bg" data-type="background" data-speed="10"><?php
+						<div class="img" id="ftd_bg" style="background-attachment: inherit;"><?php
 							full_bgImg($hImg, '#ftd_bg'); ?>
 						</div>
 					</li>
@@ -159,9 +164,9 @@
 				<ul><?php
 				while (have_rows('service_list')) { the_row(); ?>
 					<li><?php
-
-						if(get_sub_field('img')){
-							echo '<div class="imagen"><img src="img/590.jpg"></div>';
+						$square_img = get_sub_field('img');
+						if($square_img){
+							imgObj($square_img, 'imagen');
 						} ?>
 						<div class="titulo">
 							<a href="<?php the_sub_field('link'); ?>">
@@ -183,13 +188,28 @@
 
 
 	if(get_field('contenido')) {
-		while(have_rows('contenido')) : the_row(); ?>
+		while(have_rows('contenido')) : the_row();
+
+
+			if(is_page('nosotros')) { ?>
+
+		<div class="white_title display_title">
+			<div class="white_mask"></div>
+			<div class="title">
+				<h2><?php the_sub_field('title'); ?></h2>
+			</div>
+			<div class="two_columns">
+				<ul>
+					<li><?php the_sub_field('content'); ?></li>
+					<li><?php the_sub_field('content_2'); ?></li>
+				</ul>
+			</div>
+		</div><?php
+
+			} else { ?>
+
 		<section>
-			<div class="entire_halfs white" id="hippo"><?php
-				$hImg = get_sub_field('bg_img');
-				if($hImg){
-					full_bgImg($hImg, '#ftd_bg');
-				} ?>
+			<div class="entire_halfs white" id="ftd_bg" style="background-image: url('<?php the_field('bg_img');?>');">
 				<div class="coal_mask"></div>
 				<div class="title">
 					<h1><?php the_sub_field('title'); ?></h1>
@@ -202,6 +222,9 @@
 				</div>
 			</div>
 		</section><?php
+
+			}
+
 		endwhile;
 	}
 
@@ -219,8 +242,16 @@
 		$address = get_sub_field('address');
 	}
 	if(get_field('or_address') || get_field('map')){ ?>
-		<section>
-			<div class="entire_halfs white" style="background-image: url('img/2000x2117.jpg');">
+		<section id="<?php
+					global $post;
+					$post_slug=$post->post_name;
+					echo $post_slug;
+				?>">
+			<div class="entire_halfs white" id="ftd_bg"><?php
+				$contact_bg = get_field('bg_img');
+				if($contact_bg){
+					full_bgImg($contact_bg, '#ftd_bg');
+				} ?>
 				<div class="coal_mask"></div>
 				<div class="title">
 					<h1 class="futuraB_big">Contacto.</h1>
